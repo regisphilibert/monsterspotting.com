@@ -1,0 +1,23 @@
+{{ define "main" }}
+
+  <div class="">
+    <div class="col-span-4 mb-16 text-3xl md:text-6xl max-w-3xl mx-auto leading-snug text-center font-bold  ">
+      {{ .Content }}
+    </div>
+    <div class="col-span-6">
+      <div class="text-4xl mb-4 flex justify-between">
+        <div>Spot your monsters!</div>
+        {{ with site.GetPage "/monsters" }}
+        <a href="{{ .RelPermalink }}" class="block">All Monsters -></a>
+        {{ end }}
+
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+        {{ range $page := first 8 (partialCached "func/GetMonsterPages" "GetMonsterPages") }}
+          {{ partialCached "monster" . . }}
+        {{ end }}
+      </div>
+     </div>
+  </div>
+
+{{ end }}

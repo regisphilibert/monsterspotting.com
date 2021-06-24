@@ -1,0 +1,26 @@
+{{/*
+  GetMonsterPages
+  Retrieves the list of term pages for the `monsters_refs` taxonomy.
+
+  @author @regisphilibert
+
+  @context Any (.)
+
+  @access private
+
+  @returns Collection of Pages
+
+  @example - Go Template 
+            We don't need a context
+            We don't need a variant either as returned value is the same across build
+
+    {{ with partialCached "GetMonsterPages" "GetMonsterPages" }}
+      Monster name is {{ .name }}
+    {{ end }}
+*/}}
+{{ $monsters := slice }}
+{{ range site.Taxonomies.monsters_refs }}
+  {{ $monsters = $monsters | append .Page }}
+{{ end }}
+
+{{ return $monsters }}

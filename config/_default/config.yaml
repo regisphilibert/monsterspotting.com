@@ -1,0 +1,6 @@
+baseURL: https://monsterspotting.com
+languageCode: en-us
+title: Monsterspotting
+paginate: 10
+taxonomies:
+  monster_ref: monsters_refs

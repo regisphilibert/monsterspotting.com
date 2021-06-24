@@ -1,0 +1,3 @@
+imports:
+  - path: github.com/theNewDynamic/hugo-module-tnd-styles
+  - path: github.com/theNewDynamic/hugo-module-tnd-scripts

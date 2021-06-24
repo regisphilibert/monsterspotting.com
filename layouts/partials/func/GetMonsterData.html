@@ -1,0 +1,27 @@
+{{/*
+  GetMonsterData
+  Retrieves the data of a monster given a key
+
+  @author @regisphilibert
+
+  @context String
+
+  @access private
+
+  @returns Map
+    String (.name)
+    String (.spotted)
+    String (.svg)
+
+  @example - Go Template
+            Variant is the lone parameter
+    {{ with partialCached "GetMonsterData" "gus-vinyl" "gus-vinyl" }}
+      Monster name is {{ .name }}
+    {{ end }}
+*/}}
+{{ $monster := dict }}
+{{ with index site.Data.monsters . }}
+  {{ $monster = . }}
+{{ end }}
+
+{{ return $monster }}
